@@ -4,5 +4,4 @@ const throwError = (errorMessage) =>{
 
 
 const connectionString = process.env.CONNECTION_STRING ?? throwError("Connection String not defined")
-
 module.exports = {connectionString};
