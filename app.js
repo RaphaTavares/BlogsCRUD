@@ -2,12 +2,13 @@ const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const { render } = require('ejs')
-const blogRoutes = require('./routes/blogRoutes');
+const blogRoutes = require('./routes/blogRoutes')
+const { connectionString } = require('./config')
 const app = express()
 
-//connection string MongoDB
-const dbURI = '{CONNECTION_STRING}'
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
+
+//connect to mongoDB
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => {
         app.listen(3000)
         console.log('SERVER LISTENING ON PORT 3000')
